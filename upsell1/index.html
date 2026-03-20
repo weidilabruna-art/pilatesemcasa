@@ -1,0 +1,1260 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESPERE! Potencialize Seus Ganhos — Combo FIT</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #F5C842;
+  --gold-dark: #D4A017;
+  --neon: #C6F135;
+  --dark: #0A0A0F;
+  --dark2: #12121A;
+  --dark3: #1C1C28;
+  --white: #FAFAFA;
+  --muted: rgba(250,250,250,0.5);
+  --red: #FF4757;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--dark);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── NOISE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .3;
+}
+
+/* ══════════════════════ HERO ══════════════════════ */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 80px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(197,241,53,0.18) 0%, transparent 70%),
+              radial-gradient(ellipse 60% 50% at 80% 80%, rgba(245,200,66,0.12) 0%, transparent 60%),
+              var(--dark);
+}
+
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Spotlight circle */
+.hero-glow {
+  position: absolute;
+  width: 900px; height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,241,53,0.07) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -55%);
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 860px; }
+
+.top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(197,241,53,0.1);
+  border: 1.5px solid rgba(197,241,53,0.35);
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin-bottom: 32px;
+  animation: fadeslide .8s ease both;
+}
+
+.dot-anim {
+  width: 8px; height: 8px;
+  background: var(--neon);
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(56px, 9vw, 110px);
+  line-height: .95;
+  letter-spacing: .01em;
+  color: var(--white);
+  animation: fadeslide .8s .1s ease both;
+  margin-bottom: 10px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  display: block;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: var(--muted);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 18px auto 0;
+  line-height: 1.7;
+  animation: fadeslide .8s .2s ease both;
+}
+
+.hero-sub strong { color: var(--white); font-weight: 700; }
+
+/* ── COUNTDOWN ── */
+.countdown-wrap {
+  display: inline-flex;
+  gap: 5px;
+  margin: 40px auto 0;
+  animation: fadeslide .8s .35s ease both;
+}
+
+.cd-block {
+  background: var(--dark3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 18px 22px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.cd-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.cd-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.cd-sep {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: rgba(255,255,255,0.2);
+  align-self: center;
+  margin: 0 2px;
+  padding-bottom: 10px;
+}
+
+/* ══════════════════════ STRIP ══════════════════════ */
+.strip {
+  background: var(--gold);
+  padding: 16px 20px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.strip-track {
+  display: inline-flex;
+  gap: 60px;
+  animation: marquee 18s linear infinite;
+}
+
+.strip-track span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: .08em;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.strip-track span::before { content: '★'; }
+
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ══════════════════════ STORY ══════════════════════ */
+.story {
+  padding: 100px 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin-bottom: 20px;
+}
+
+.story h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 30px;
+}
+
+.story p {
+  font-size: 18px;
+  line-height: 1.85;
+  color: rgba(250,250,250,0.75);
+  margin-bottom: 20px;
+}
+
+.story p strong { color: var(--white); }
+
+.callout-box {
+  background: var(--dark3);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 14px 14px 0;
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+
+.callout-box p {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ══════════════════════ PRODUCTS ══════════════════════ */
+.products {
+  padding: 100px 20px;
+  background: var(--dark2);
+  position: relative;
+  overflow: hidden;
+}
+
+.products::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,200,66,0.06) 0%, transparent 70%);
+  bottom: -200px; right: -200px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 6vw, 72px);
+  letter-spacing: .02em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.section-title span { color: var(--gold); }
+
+.section-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 600px;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--dark3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  padding: 40px 34px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(245,200,66,0.3);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,200,66,0.1);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--neon));
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.card:hover::before { opacity: 1; }
+
+.card-number {
+  position: absolute;
+  top: 30px; right: 30px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.card-icon-wrap {
+  width: 64px; height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(245,200,66,0.15), rgba(245,200,66,0.05));
+  border: 1px solid rgba(245,200,66,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+
+.card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: .04em;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(250,250,250,0.8);
+}
+
+.feature-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(197,241,53,0.15);
+  border: 1.5px solid rgba(197,241,53,0.4);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23C6F135' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card.bonus {
+  background: linear-gradient(135deg, rgba(197,241,53,0.07) 0%, var(--dark3) 60%);
+  border-color: rgba(197,241,53,0.2);
+}
+
+/* ══════════════════════ COMPARISON ══════════════════════ */
+.comparison {
+  padding: 100px 20px;
+  background: var(--dark);
+}
+
+.comparison-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.comparison-header { text-align: center; margin-bottom: 60px; }
+
+.table-wrap {
+  background: var(--dark3);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+.table-head {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  background: rgba(255,255,255,0.04);
+  padding: 0;
+}
+
+.table-head > div {
+  padding: 20px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.table-head > div:nth-child(3) {
+  background: linear-gradient(135deg, rgba(245,200,66,0.15), rgba(245,200,66,0.05));
+  color: var(--gold);
+  text-align: center;
+  border-left: 1px solid rgba(245,200,66,0.2);
+}
+
+.table-head > div:nth-child(2) { text-align: center; }
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  align-items: center;
+  transition: background .2s;
+}
+
+.table-row:hover { background: rgba(255,255,255,0.02); }
+
+.table-row > div {
+  padding: 18px 24px;
+  font-size: 15px;
+}
+
+.table-row > div:first-child {
+  color: rgba(250,250,250,0.8);
+  font-weight: 500;
+}
+
+.table-row > div:nth-child(2) {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.table-row > div:nth-child(3) {
+  text-align: center;
+  background: rgba(245,200,66,0.04);
+  border-left: 1px solid rgba(245,200,66,0.12);
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.t-check { color: var(--neon); font-size: 20px; }
+.t-cross { color: rgba(255,255,255,0.25); font-size: 20px; }
+
+/* ══════════════════════ TESTIMONIALS ══════════════════════ */
+.testimonials {
+  padding: 100px 20px;
+  background: var(--dark2);
+}
+
+.testimonials-header { text-align: center; margin-bottom: 60px; }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testi-card {
+  background: var(--dark3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.testi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+
+.testi-stars {
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+.testi-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(250,250,250,0.75);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testi-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--neon));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--dark);
+  flex-shrink: 0;
+}
+
+.testi-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+}
+
+.testi-badge {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--neon);
+  background: rgba(197,241,53,0.1);
+  border-radius: 20px;
+  padding: 2px 10px;
+  display: inline-block;
+}
+
+/* ══════════════════════ PRICING ══════════════════════ */
+.pricing {
+  padding: 120px 20px;
+  background: var(--dark);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(245,200,66,0.08) 0%, transparent 70%);
+}
+
+.pricing-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+
+.pricing-box {
+  background: var(--dark3);
+  border: 1.5px solid rgba(245,200,66,0.3);
+  border-radius: 28px;
+  padding: 60px 50px;
+  position: relative;
+  box-shadow: 0 0 80px rgba(245,200,66,0.1), 0 40px 80px rgba(0,0,0,0.4);
+  margin-top: 50px;
+}
+
+.pricing-ribbon {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 8px 28px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.price-was {
+  font-size: 20px;
+  color: var(--muted);
+  text-decoration: line-through;
+  margin-bottom: 6px;
+}
+
+.price-main {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 100px;
+  line-height: 1;
+  color: var(--white);
+  margin: 10px 0 4px;
+  letter-spacing: -.01em;
+}
+
+.price-main span {
+  font-size: 48px;
+  vertical-align: super;
+  margin-right: 4px;
+  color: var(--gold);
+}
+
+.price-installments {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.savings-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(197,241,53,0.12);
+  border: 1.5px solid rgba(197,241,53,0.3);
+  color: var(--neon);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  margin-bottom: 36px;
+}
+
+.cta-btn {
+  display: inline-block;
+  width: 100%;
+  background: linear-gradient(135deg, var(--gold) 0%, #E8A800 100%);
+  color: var(--dark);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: .08em;
+  padding: 22px 40px;
+  border-radius: 16px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(245,200,66,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left .5s;
+}
+
+.cta-btn:hover::after { left: 100%; }
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(245,200,66,0.45);
+}
+
+.cta-micro {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+.cta-micro strong { color: rgba(250,250,250,0.7); }
+
+/* Decline */
+.decline-section {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.decline-section p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 8px;
+}
+
+.decline-link {
+  font-size: 13px;
+  color: rgba(255,71,87,0.6);
+  text-decoration: underline;
+}
+
+.decline-link:hover { color: var(--red); }
+
+/* ══════════════════════ GUARANTEE ══════════════════════ */
+.guarantee {
+  padding: 100px 20px;
+  background: var(--dark2);
+}
+
+.guarantee-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.guarantee-badge {
+  flex-shrink: 0;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: var(--dark3);
+  border: 3px solid rgba(197,241,53,0.3);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  box-shadow: 0 0 40px rgba(197,241,53,0.15);
+}
+
+.guarantee-badge span:first-child { font-size: 44px; }
+
+.guarantee-badge span:last-child {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: .1em;
+  color: var(--neon);
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+.guarantee-text h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.guarantee-text p {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.guarantee-text p strong { color: var(--white); }
+
+/* ══════════════════════ FAQ ══════════════════════ */
+.faq {
+  padding: 100px 20px;
+  background: var(--dark);
+}
+
+.faq-inner { max-width: 760px; margin: 0 auto; }
+.faq-header { text-align: center; margin-bottom: 60px; }
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.faq-q {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--white);
+  gap: 20px;
+  transition: color .2s;
+}
+
+.faq-q:hover { color: var(--gold); }
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--dark3);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--gold);
+  transition: transform .3s, background .3s;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+  background: rgba(245,200,66,0.1);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+
+.faq-a-inner {
+  padding-bottom: 24px;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.faq-item.open .faq-a { max-height: 300px; }
+
+/* ══════════════════════ FINAL CTA ══════════════════════ */
+.final {
+  padding: 130px 20px;
+  background: var(--dark2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.final::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(197,241,53,0.08) 0%, transparent 70%);
+}
+
+.final-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+
+.final h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 8vw, 90px);
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: .02em;
+}
+
+.final h2 span { color: var(--gold); }
+
+.final p {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+.urgency-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,71,87,0.12);
+  border: 1.5px solid rgba(255,71,87,0.3);
+  color: #FF6B7A;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 100px;
+  margin-bottom: 36px;
+}
+
+/* ══════════════════════ FOOTER ══════════════════════ */
+.footer {
+  padding: 30px 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.8;
+}
+
+.footer a { color: rgba(255,71,87,0.6); text-decoration: underline; }
+
+/* ══════════════════════ UTILS ══════════════════════ */
+.container { max-width: 1160px; margin: 0 auto; }
+
+@keyframes fadeslide {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ══════════════════════ MOBILE ══════════════════════ */
+@media(max-width: 768px) {
+  .hero h1 { font-size: 64px; }
+  .countdown-wrap { flex-wrap: wrap; justify-content: center; }
+  .cd-block { min-width: 70px; padding: 14px 16px; }
+  .cd-num { font-size: 40px; }
+
+  .guarantee-inner { flex-direction: column; text-align: center; }
+  .guarantee-badge { margin: 0 auto; }
+
+  .table-head, .table-row {
+    grid-template-columns: 1fr;
+  }
+  .table-head > div:nth-child(2),
+  .table-head > div:nth-child(3),
+  .table-row > div:nth-child(2),
+  .table-row > div:nth-child(3) {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .pricing-box { padding: 50px 28px; }
+  .price-main { font-size: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="top-badge"><span class="dot-anim"></span> Oferta exclusiva — Uma única vez</div>
+    <h1>ESPERE!<span>Não Feche Esta Página</span></h1>
+    <p class="hero-subtitle hero-sub">Você garantiu a <strong>Calistenia Sexy</strong> — agora falta só uma peça para seus resultados chegarem <strong>2 a 3× mais rápido.</strong></p>
+    <div class="countdown-wrap">
+      <div class="cd-block"><div class="cd-num" id="minutes">10</div><div class="cd-label">min</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><div class="cd-num" id="seconds">00</div><div class="cd-label">seg</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STRIP ══ -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>Ganhos acelerados</span>
+    <span>Nutrição estratégica</span>
+    <span>Resultados em 30 dias</span>
+    <span>Força real</span>
+    <span>Combo Fit</span>
+    <span>60% de desconto hoje</span>
+    <!-- duplicated for seamless loop -->
+    <span>Ganhos acelerados</span>
+    <span>Nutrição estratégica</span>
+    <span>Resultados em 30 dias</span>
+    <span>Força real</span>
+    <span>Combo Fit</span>
+    <span>60% de desconto hoje</span>
+  </div>
+</div>
+
+<!-- ══ STORY ══ -->
+<section class="story reveal">
+  <p class="section-eyebrow">Por que você ainda precisa disso</p>
+  <h2>O segredo de quem ganha músculos mais rápido com Calistenia</h2>
+  <p>Você acabou de garantir a <strong>Calistenia Sexy</strong> — e isso é um passo enorme. Estou MUITO feliz por você. 💪</p>
+  <p>Mas sabe qual é a principal reclamação de quem treina em casa com peso corporal?</p>
+  <div class="callout-box">
+    <p>"A Calistenia constrói músculo e força, mas <strong>sem nutrição certa, os ganhos demoram muito mais para aparecer.</strong>"</p>
+  </div>
+  <p>A verdade é simples: você já se comprometeu com o treino. Agora basta fechar o único elo que falta — <strong>a alimentação estratégica.</strong></p>
+  <p>Foi exatamente para isso que criamos o Combo FIT: o kit de nutrição que potencializa cada repetição que você vai fazer.</p>
+</section>
+
+<!-- ══ PRODUCTS ══ -->
+<section class="products">
+  <div class="container">
+    <div class="products-header reveal">
+      <p class="section-eyebrow">O que você vai levar</p>
+      <h2 class="section-title">O Combo <span>FIT</span> 🍴</h2>
+      <p class="section-sub">Tudo que você precisa para transformar treino em resultado de verdade.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card reveal">
+        <div class="card-number">01</div>
+        <div class="card-icon-wrap">🍱</div>
+        <h3>Almoço FIT</h3>
+        <p>Refeições completas, balanceadas e saborosas — todos os nutrientes que seus músculos precisam para crescer.</p>
+        <ul class="feature-list">
+          <li>Proteínas de alta qualidade</li>
+          <li>Carboidratos para energia sustentada</li>
+          <li>Vitaminas e minerais essenciais</li>
+          <li>Preparo rápido (5–10 min)</li>
+          <li>Sabores variados e deliciosos</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <div class="card-number">02</div>
+        <div class="card-icon-wrap">🥟</div>
+        <h3>Salgados FITs</h3>
+        <p>Lanches proteicos perfeitos para pré ou pós-treino — você saciado, energizado e sem culpa.</p>
+        <ul class="feature-list">
+          <li>Alto teor de proteína</li>
+          <li>Baixo teor de gorduras ruins</li>
+          <li>Ideal pré e pós-treino</li>
+          <li>Praticidade total</li>
+          <li>Sem sair da dieta</li>
+        </ul>
+      </div>
+      <div class="card bonus reveal">
+        <div class="card-number">+</div>
+        <div class="card-icon-wrap" style="background: rgba(197,241,53,0.1); border-color: rgba(197,241,53,0.2);">📊</div>
+        <h3>Plano Alimentar</h3>
+        <p>Guia completo de como organizar suas refeições para maximizar ganhos com a Calistenia. <strong style="color:var(--neon);">Grátis hoje!</strong></p>
+        <ul class="feature-list">
+          <li>Timing ideal das refeições</li>
+          <li>Quantidades por objetivo</li>
+          <li>Dicas de hidratação</li>
+          <li>Estratégias de suplementação</li>
+          <li>Checklist semanal</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARISON ══ -->
+<section class="comparison">
+  <div class="comparison-inner">
+    <div class="comparison-header reveal">
+      <p class="section-eyebrow">Compare os resultados</p>
+      <h2 class="section-title">Só treino <span>vs</span> Treino + Nutrição</h2>
+    </div>
+    <div class="table-wrap reveal">
+      <div class="table-head">
+        <div>Benefício</div>
+        <div>Só Calistenia Sexy</div>
+        <div>🔥 Calistenia + Combo FIT</div>
+      </div>
+      <div class="table-row">
+        <div>Velocidade de progressão</div>
+        <div>Normal</div>
+        <div>2–3× mais rápida</div>
+      </div>
+      <div class="table-row">
+        <div>Recuperação muscular</div>
+        <div class="t-cross">Lenta</div>
+        <div class="t-check">✓ Otimizada</div>
+      </div>
+      <div class="table-row">
+        <div>Energia nos treinos</div>
+        <div class="t-cross">Moderada</div>
+        <div class="t-check">✓ Máxima</div>
+      </div>
+      <div class="table-row">
+        <div>Nutrição estratégica</div>
+        <div class="t-cross">✗</div>
+        <div class="t-check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Ganhos visíveis em 30 dias</div>
+        <div>Pouco perceptível</div>
+        <div>Mudança notável</div>
+      </div>
+      <div class="table-row">
+        <div>Praticidade no dia a dia</div>
+        <div class="t-cross">✗</div>
+        <div class="t-check">✓</div>
+      </div>
+      <div class="table-row">
+        <div>Economia total</div>
+        <div>R$ 0,00</div>
+        <div>R$ 150,00 economizados!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <p class="section-eyebrow">Resultados reais</p>
+      <h2 class="section-title">Quem combinou, <span>transformou</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"A Calistenia me deu o shape, mas o Combo FIT me deu o combustível! Minha recuperação melhorou demais. Ganhei 5kg de músculo em 2 meses!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Rafael M.</div>
+            <span class="testi-badge">+5kg em 2 meses</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Os Salgados FITs são meu lanche pré-treino favorito! Não tenho tempo de preparar comida e o Almoço FIT resolve tudo. Em 3 semanas já notei diferença."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Marcelo S.</div>
+            <span class="testi-badge">Definição em 3 semanas</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Achei que só treinar bastaria, mas quando adicionei o Combo FIT tudo mudou. Minhas repetições aumentaram e a dor muscular diminuiu muito!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Lucas P.</div>
+            <span class="testi-badge">Força e resistência ++</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"O melhor investimento que fiz! A praticidade do Combo FIT me ajudou a manter a consistência. Não quebro a dieta nunca mais. Recomendo 100%!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">B</div>
+          <div>
+            <div class="testi-name">Bruno L.</div>
+            <span class="testi-badge">Consistência total</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="pricing">
+  <div class="pricing-inner">
+    <p class="section-eyebrow reveal" style="text-align:center;">Seu investimento</p>
+    <h2 class="section-title reveal" style="text-align:center;">Adicione o Combo <span>FIT</span></h2>
+    <p class="reveal" style="color:var(--muted); font-size:17px; margin-top:10px;">Seus resultados com Calistenia serão limitados sem a nutrição certa. <strong style="color:var(--white);">Esta oferta só aparece UMA VEZ.</strong></p>
+
+    <div class="pricing-box reveal">
+      <div class="pricing-ribbon">🔥 Oferta exclusiva de hoje</div>
+      <div class="price-was">De R$ 197,00</div>
+      <div class="price-main"><span>R$</span>47</div>
+      <div class="price-installments">ou 6× de R$ 8,82 no cartão</div>
+      <div class="savings-tag">✓ Você economiza R$ 130,00 — mais de 60% off</div>
+      <a href="https://pay.kiwify.com.br/GFODJbV" class="cta-btn">
+        SIM! QUERO O COMBO FIT →
+      </a>
+      <p class="cta-micro">🔒 <strong>Acesso imediato</strong> · Compra 100% segura · 30 dias de garantia</p>
+      <div class="decline-section">
+        <p>Não quero acelerar meus resultados.</p>
+        <a href="https://pilatesemcasaofc.vercel.app/app/dws" class="decline-link">Prefiro ganhos mais lentos e perder esta oferta.</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GUARANTEE ══ -->
+<section class="guarantee">
+  <div class="guarantee-inner reveal">
+    <div class="guarantee-badge">
+      <span>🛡️</span>
+      <span>30 DIAS<br>GARANTIA</span>
+    </div>
+    <div class="guarantee-text">
+      <h3>Garantia Incondicional de 30 Dias</h3>
+      <p>Use o Combo FIT por 30 dias completos. Se você não sentir uma aceleração clara nos seus ganhos e energia, <strong>eu devolvo 100% do seu dinheiro.</strong> Sem perguntas, sem burocracia. O risco é todo meu — você só tem a ganhar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <p class="section-eyebrow">Dúvidas comuns</p>
+      <h2 class="section-title">Perguntas <span>Frequentes</span></h2>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">O Combo FIT interfere no meu treino de Calistenia? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Não — muito pelo contrário! O Combo FIT é o complemento perfeito. A Calistenia constrói força e músculo, e o Combo FIT fornece a nutrição necessária para você ver resultados mais rápidos e ter mais energia nos treinos.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Por que essa oferta está tão barata? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">É um agradecimento exclusivo por você já ter confiado em nosso programa. Queremos te dar todas as ferramentas para ter sucesso total sem pagar o preço cheio do combo. Aproveite!</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">O Almoço FIT e os Salgados FITs são fáceis de preparar? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Sim! O Almoço FIT fica pronto em 5–10 minutos e os Salgados FITs são práticos para levar onde quiser. Tudo pensado para rotinas corridas sem abrir mão da qualidade nutricional.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Se eu sair da página, posso comprar depois? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">NÃO. Esta é uma oferta de upsell que aparece UMA VEZ após a compra da Calistenia Sexy. Se você sair, não conseguirá mais o Combo FIT por R$ 47. O valor normal é R$ 197.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">O que o Combo FIT vai fazer pelo meu corpo? <span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">O Almoço FIT fornece todos os macronutrientes para construção muscular e energia. Os Salgados FITs são ideais para pré/pós-treino. Juntos, trazem ganhos de força e massa muito mais rápidos do que apenas treinar.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final">
+  <div class="final-inner">
+    <div class="urgency-bar reveal">⚡ Última chance — Oferta expira em breve</div>
+    <h2 class="reveal">SEU CORPO<span>TE ESPERA</span></h2>
+    <p class="reveal">Esta é a sua única chance de levar o Combo FIT com 60% de desconto.</p>
+    <a href="https://pay.kiwify.com.br/B17KSzn" class="cta-btn reveal" style="max-width:500px; display:block; margin: 0 auto;">
+      ÚLTIMA CHANCE: COMBO FIT POR R$ 47 →
+    </a>
+    <p style="font-size:14px; color:var(--muted); margin-top:16px;" class="reveal">Menos de R$ 5/mês para POTENCIALIZAR seus ganhos</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <p>© Calistenia Sexy · Todos os direitos reservados<br>
+  <a href="https://viviannsilper.com.br/dw1/">Não quero esta oferta, continuar apenas com minha Calistenia Sexy.</a></p>
+</footer>
+
+<script>
+// Countdown
+let t = 600;
+const mEl = document.getElementById('minutes');
+const sEl = document.getElementById('seconds');
+function tick() {
+  mEl.textContent = String(Math.floor(t/60)).padStart(2,'0');
+  sEl.textContent = String(t%60).padStart(2,'0');
+  if(t > 0) t--; else {
+    document.querySelector('.countdown-wrap').innerHTML = '<div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:#FF4757;letter-spacing:.08em;">⚠ OFERTA EXPIRADA</div>';
+    clearInterval(cd);
+  }
+}
+const cd = setInterval(tick, 1000);
+tick();
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if(!open) item.classList.add('open');
+  });
+});
+</script>
+
+</body></html>
